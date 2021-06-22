@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <!-- <li class="sidebar-brand">
+                <p>has</p>
+            </li> -->
+            <li class="nav-divider" style="color: azure;">
+                USUARIOS
+            </li>
+            <li>
+                <a  id="op1" (click)="seleccion1()">Mostrar Administradores</a>
+            </li>
+            <li>
+                <a  id="op1" (click)="seleccion2()">Registrar Administrador</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li class="nav-divider" style="color: azure;">
+                VIAJES
+            </li>
+            <li>
+                <a id="op3" (click)="seleccion3()">Mostrar buses</a>
+            </li>
+            <li>
+                <a id="op3" (click)="seleccion4()">Agregar buses</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-divider" style="color: azure;">
+                SALIR
+            </li>
+            <li>
+                <a (click)="outLogin()" >Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Administracion</h1>
+                    <br>
+                    <!-- <div *ngIf="opcion == 0">
+                        <app-login></app-login>
+                      </div> -->
+                      
+                    <div *ngIf="opcion == 2">
+                        <app-agregar></app-agregar>
+                    </div>
+                    <div *ngIf="opcion == 1">
+                        <table class="table">
+                            <thead class="table table-dark">
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Nombre Usuario</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Edicion</th>
+                                <th scope="col">Elimiar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let admin of ListarAdmin; let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{admin.nombre}}</td>
+                                    <td>{{admin.apellido}}</td>
+                                    <td>{{admin.nombreus}}</td> 
+                                    <td>{{admin.correo}}</td>
+                                    <td>
+                                        <button (click)="modificar(admin.id)" type="button" class="btn btn-primary">Editar</button>
+                                    </td>
+                                    <td>
+                                        <button (click)="eliminar(admin.id)" type="button" class="btn btn-danger">Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="opcion == 3">
+                        <app-mostrar-horario></app-mostrar-horario>
+                    </div>
+                    <div *ngIf="opcion == 4">
+                        <app-registro-horario></app-registro-horario>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
